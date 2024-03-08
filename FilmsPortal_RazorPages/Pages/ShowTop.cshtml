@@ -1,0 +1,64 @@
+﻿@page
+@model FilmsPortal_RazorPages.Pages.ShowTopModel
+@{
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Название
+            </th>
+            <th>
+               Описание
+            </th>
+            <th>
+               Жанр
+            </th>
+            <th>
+               Год
+            </th>
+            <th>
+               Режисер
+            </th>
+            <th>
+               Постер
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.filemodel)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @if(item.Description.Length > 75)
+                    {
+                        @(item.Description.Remove(75) + "...");
+                    }
+                    else @item.Description
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jenre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producer)
+                </td>
+                <td>
+                    <img src="@item.Poster" style="width:128px;height:128px;" />
+                </td>
+                <td class="btn_helpers_Index_Cre_del_edit">
+                    <a asp-page="Edit" asp-route-id="@item.Id" style="text-decoration:none"><i>Изменить</i></a>
+                    <a asp-page="Info" asp-route-id="@item.Id" style="text-decoration:none"><i>Подробности</i></a>
+                    <a asp-page="Delete" asp-route-id="@item.Id" style="text-decoration:none"><i>Удалить</i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
