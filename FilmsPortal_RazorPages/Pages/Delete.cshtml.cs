@@ -15,7 +15,7 @@ namespace FilmsPortal_RazorPages.Pages
         public int id { get; set; }
 
 
-        public string Message { get; set; } = "¬ы действительно хотите удалить фильм? ";
+        public string Message { get; set; } = "¬ы действительно хотите удалить фильм?";
         public DeleteModel(ApplicationContext context)
         {
             _context = context;
@@ -24,7 +24,7 @@ namespace FilmsPortal_RazorPages.Pages
 
         public void OnGet()
         {
-            Message = "¬ы действительно хотите удалить этот фильм?" + id;
+            Message = "¬ы действительно хотите удалить этот фильм?";
             HttpContext.Session.SetString("idDeleteFilm", id.ToString());
         }
         public async Task<IActionResult> OnPostAsync()

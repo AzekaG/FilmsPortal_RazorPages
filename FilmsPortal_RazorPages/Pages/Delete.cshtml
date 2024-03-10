@@ -1,12 +1,30 @@
 ﻿@page
 @model FilmsPortal_RazorPages.Pages.DeleteModel
 
+<style>
+	body{
+		overflow: hidden;
+	}
+</style>
+
+<input type="hidden" name="id"/>
+<div class="info">
+	<span>Нажмите на Землю , чтобы отказаться от удаления</span>
+</div>
+<div class="space">
+		<div class="sun object-bg-animation space-object">
+			</div>
+	<div class="earth-group objects-group">
+		<a asp-page="./ShowTop"><div class="earth-group__earth object-bg-animation space-object"></div>
+		</a>
+		<form asp-action="Delete">
+			<div class="earth-group__moon space-object">
+				<input type="submit" style="background:none; border-radius: 30px; margin-top:25px; font-size:22px" value="Удалить">
+			</div>
+		</form>
+		</div>
+	</div>
 
 
 
-<h1>@Model.Message</h1>
-<input type="hidden" name="id" />
-<form asp-action="Delete">
-    
-    <input type="submit" value="Yeees" />
-</form>
+

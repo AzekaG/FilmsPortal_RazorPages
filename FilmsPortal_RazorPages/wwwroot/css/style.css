@@ -1,0 +1,135 @@
+html,body{
+	height: 100%;
+}
+
+body {
+	margin: 0;
+
+}
+
+.info{
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	padding: 15px;
+	border-radius: 10px;
+	background-color: rgba(0,0,0, 0.9);
+	z-index: 10;
+	
+}
+
+.space{
+	width: 100vw;
+	height: 100vh;
+	background-color: black;
+	background-image: url("../lib/space-BG.jpg");
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	
+	overflow: hidden;
+}
+
+.earth-group{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 15vw;
+	height: 15vw;
+	transform:translate(-50%,-50%);
+}
+
+.earth-group__earth {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 15vw;
+	height: 15vw;
+	background-color: blue;
+	background-image: url("../lib/earth-mapHD.jpg");
+	animation-duration: 5s;
+	z-index: 10;
+	box-shadow: 0 0 15px 1px black inset, 0 0 20px 0px rgba(0, 107, 212, 0.9)
+}
+
+.earth-group__moon{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 5vw;
+	height: 5vw;
+	transform: translate(-100%,100%);
+	background-color: gray;
+	background-image: url("../lib/moon-mapHD.jpg");
+	animation: spinArroundEarth 5s linear infinite;
+	z-index: 1;
+	box-shadow: 0 0 15px 1px black inset;	
+}
+
+.sun {
+	position: absolute;
+	right: -15vw;
+	top: 50%;
+	width: 30vw;
+	height: 30vw;
+	transform: translateY(-50%);
+	background-color: orange;
+	background-image: url('../lib/sun-mapHD.jpg');
+	animation-duration: 125s;
+	box-shadow: 0 0 2px 0px black inset, 0 0 70px 10px rgb(212, 73, 8);
+}
+
+
+.space-object{
+	border-radius: 50%;
+	background-repeat: repeat-x;
+	background-position: 0 0;
+	-webkit-background-size: auto 100%;
+	background-size: auto 100%;
+}
+
+.object-bg-animation{
+	animation-name:object-bg;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+@keyframes object-bg {
+	to {
+		background-position:194% 0;
+	}
+}
+
+@keyframes spinArroundEarth{
+	0%{
+		bottom: 0;
+		left: 0;
+		transform: translate(-100%,100%);
+	}
+	25%{
+		transform: translate(-50%,50%) scale(0.5);
+	}
+	49%{
+		z-index: 1;
+	}
+	50%{
+		z-index: 10;
+		bottom: 100%;
+		left: 100%;
+		transform: translate(0,0) scale(1);
+	}
+	75%{
+		transform: translate(-50%,50%) scale(1.5);	
+	}
+	99%{
+		z-index: 10;
+	}
+	100%{
+		bottom: 3px;
+		left: 3px;
+		transform: translate(-100%,100%);
+		z-index: 1;
+		background-position:200% 0;
+	}
+}
